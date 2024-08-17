@@ -1,0 +1,101 @@
+@import './reset.scss';
+
+:root {
+  /* text */
+  --text-primary: #000;
+  --text-secondary: #f3f3f3;
+  --text-grey: #838383;
+
+  /* background */
+  --bg: #fff;
+  --body: #f3f3f3;
+
+  /* border */
+  --stroke: #e6e6e6;
+  --stroke-grey: #d4d4d4;
+  --stroke-grey-active: #838383;
+
+  /* btn */
+  --btn-color-primary: #fff;
+  --btn-bg-primary: #000;
+  --btn-color-primary-disabled: #f3f3f3;
+  --btn-bg-primary-disabled: #d4d4d4;
+
+  --btn-color-secondary: #000;
+  --btn-bg-secondary: #fff;
+  --btn-border-secondary: #d4d4d4;
+
+  /* primary */
+  --bg-disabled: #D4D4D4;
+  --text-disabled: #F3F3F3;
+  --border-radius: 5px;
+  --error: #ff0000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  line-height: 160%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 1.875rem;
+  letter-spacing: 0.01rem;
+  line-height: 140%;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 160%;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input,
+textarea {
+  &::placeholder {
+    color: var(--text-grey);
+  }
+}
+
+svg, path {
+  transition: fill 0.3s ease;
+}
+
+section {
+  padding: 0 calc((100vw - 50rem) / 2);
+}
+
+.form {
+  padding: 1.875rem;
+  background: var(--bg);
+  border: 1px solid var(--stroke);
+  border-radius: var(--border-radius);
+}
+
+.error {
+  color: var(--error);
+}
