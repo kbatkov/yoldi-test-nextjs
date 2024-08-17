@@ -1,3 +1,4 @@
+import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -23,9 +24,12 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <ProgressBarProvider>
+          <ProgressBar className="progressBar" />
+          <Header />
+          {children}
+          <Footer />
+        </ProgressBarProvider>
       </body>
     </html>
   );
