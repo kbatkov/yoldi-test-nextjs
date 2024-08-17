@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import Link from "next/link";
 
 import s from "./Button.module.scss";
 
@@ -10,6 +10,7 @@ interface IButton {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   type?: "submit" | "reset" | "button" | undefined;
   className?: string;
+  href?: string;
 }
 
 export const Button: React.FC<IButton> = ({
@@ -20,22 +21,18 @@ export const Button: React.FC<IButton> = ({
   children,
   onClick,
   className = "",
+  href,
 }) => {
-  return (
-    <button
-      className={
-        s.btn +
-        " " +
-        (style == "primary" ? s.btn_primary : s.btn_secondary) +
-        " " +
-        (size == "big" ? s.btn_big : s.btn_small) +
-        " " +
-        (className && className)
-      }
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-    >
+  const buttonClasses = `${s.btn} ${style === "primary" ? s.btn_primary : s.btn_secondary} ${
+    size === "big" ? s.btn_big : s.btn_small
+  } ${className && className}`;
+
+  return href ? (
+    <Link className={buttonClasses} href={href} type={type}>
+      {children}
+    </Link>
+  ) : (
+    <button className={buttonClasses} type={type} disabled={disabled} onClick={onClick}>
       {children}
     </button>
   );

@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.8125rem;
+  border-radius: var(--border-radius);
 
   &_primary {
     color: var(--btn-color-primary);

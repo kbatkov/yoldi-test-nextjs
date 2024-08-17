@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.90625rem 1.84375rem 0.90625rem 1.25rem;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.logo {
+  display: block;
+}
+
+.text {
+  max-width: 14.375rem;
+
+  @media screen and (max-width: 530px) {
+    display: none;
+  }
+}
+
+.btn {
+  padding-left: 2.0625rem !important;
+  padding-right: 2.0625rem !important;
+  margin-left: auto;
+}

@@ -1,0 +1,21 @@
+.section {
+  height: 100%;
+  background: var(--body);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 400px) {
+    background: var(--bg);
+    align-items: baseline;
+  }
+}
+
+.form {
+  width: 25rem;
+
+  @media screen and (max-width: 400px) {
+    border: none;
+    border-radius: 0;
+  }
+}
