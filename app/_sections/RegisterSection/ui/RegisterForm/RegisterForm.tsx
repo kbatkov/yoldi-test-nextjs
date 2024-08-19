@@ -1,48 +1,42 @@
 "use client";
+
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import { EmailIcon, LockIcon, UserIcon } from "@/_src/components/icons";
 import { Button, Input } from "@/_src/components/items";
+import { useAuth } from "@/_src/hooks";
+import { AuthEndpoint, AuthFormValues } from "@/_src/types";
 
 import s from "./RegisterForm.module.scss";
 
 const validationSchema = Yup.object().shape({
-  username: Yup.string()
-    .min(2, "слишком короткое имя")
-    .max(11, "слишком длинное имя")
-    .required("обязательно к заполнению"),
+  name: Yup.string().min(2, "слишком короткое имя").max(11, "слишком длинное имя").required("обязательно к заполнению"),
   email: Yup.string().email("Введите корректный email").required("обязательно к заполнению"),
-  password: Yup.string()
-    .required("пароль не указан")
-    .min(8, "Пароль слишком короткий")
-    .matches(
-      /^(?=.*[a-zA-Zа-яА-Я])(?=.*[0-9])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).*$/,
-      "должен содержать буквы, цифры и символы",
-    ),
+  password: Yup.string().required("пароль не указан"),
 });
 
 export const RegisterForm: React.FC = () => {
+  const [fetchRegister, { isLoading }] = useAuth({ endpoint: AuthEndpoint.signUp });
+
   return (
-    <div>
+    <div className={`${s.form} form  ${isLoading ? "loading" : ""}`}>
       <Formik
         initialValues={{
-          username: "",
+          name: "",
           email: "",
           password: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={async (values: AuthFormValues) => fetchRegister(values)}
       >
         {({ errors, touched, values }) => (
           <Form>
             <h1 className={s.title}>Регистрация в Yoldi Agency</h1>
             <Input
               className={s.input}
-              error={errors.username && touched.username ? errors.username : null}
-              name="username"
+              error={errors.name && touched.name ? errors.name : null}
+              name="name"
               type="text"
               placeholder="Имя"
             >
@@ -69,9 +63,9 @@ export const RegisterForm: React.FC = () => {
             <Button
               className={s.btn}
               type="submit"
-              disabled={!values.username.length || !values.email.length || !values.password.length}
+              disabled={!values.name?.length || !values.email.length || !values.password.length}
             >
-              Создать аккаунт
+              Зарегистрироваться
             </Button>
           </Form>
         )}

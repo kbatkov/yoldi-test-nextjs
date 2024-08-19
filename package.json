@@ -11,15 +11,18 @@
   "dependencies": {
     "formik": "^2.4.6",
     "framer-motion": "^11.3.28",
+    "jose": "^5.7.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-toastify": "^10.0.5",
     "react-transition-progress": "^0.0.4",
     "sass": "^1.77.8",
+    "swr": "^2.2.5",
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.16.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -27,6 +30,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

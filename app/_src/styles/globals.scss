@@ -129,3 +129,20 @@ section {
   left: 0;
   background: var(--progress-bar-color);
 }
+
+.loading {
+  pointer-events: none;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}

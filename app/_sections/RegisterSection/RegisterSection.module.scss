@@ -5,17 +5,8 @@
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 530px) {
     background: var(--bg);
     align-items: baseline;
-  }
-}
-
-.form {
-  width: 25rem;
-
-  @media screen and (max-width: 400px) {
-    border: none;
-    border-radius: 0;
   }
 }

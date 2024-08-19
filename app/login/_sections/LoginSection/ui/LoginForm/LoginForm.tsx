@@ -1,28 +1,32 @@
 "use client";
+
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import { EmailIcon, LockIcon } from "@/_src/components/icons";
 import { Button, Input } from "@/_src/components/items";
+import { useAuth } from "@/_src/hooks";
+import { AuthEndpoint, AuthFormValues } from "@/_src/types";
 
 import s from "./LoginForm.module.scss";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Введите корректный email").required("обязательно к заполнению"),
+  password: Yup.string().required("Пароль не указан"),
 });
 
 export const LoginForm: React.FC = () => {
+  const [fetchLogin, { isLoading }] = useAuth({ endpoint: AuthEndpoint.login });
+
   return (
-    <div>
+    <div className={`${s.form} form  ${isLoading ? "loading" : ""}`}>
       <Formik
         initialValues={{
           email: "",
           password: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={async (values: AuthFormValues) => fetchLogin(values)}
       >
         {({ errors, touched, values }) => (
           <Form>

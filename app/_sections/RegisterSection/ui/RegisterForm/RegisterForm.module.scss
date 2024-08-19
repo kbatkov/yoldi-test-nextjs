@@ -1,3 +1,15 @@
+.form {
+  position: relative;
+  width: 25rem;
+  z-index: 1;
+
+  @media screen and (max-width: 530px) {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+  }
+}
+
 .title {
   max-width: 13.4rem;
   margin-bottom: 1.5625rem;

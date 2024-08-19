@@ -1,9 +1,11 @@
+import { ToastContainer } from "react-toastify";
 import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { Footer, Header } from "./_src/components/layout";
+import { Footer, Header } from "@/_src/components/layout";
 
+import "react-toastify/dist/ReactToastify.css";
 import "@/_src/styles/globals.scss";
 
 const inter = Inter({
@@ -26,6 +28,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ProgressBarProvider>
           <ProgressBar className="progressBar" />
+          <ToastContainer position="bottom-right" />
           <Header />
           {children}
           <Footer />
