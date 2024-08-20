@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--stroke);
+  padding: 0.625rem 0;
+  gap: 1.25rem;
+
+  @media screen and (max-width: 570px) {
+    display: grid;
+    grid-template-columns: 3.125rem 1fr;
+    grid-gap: 0 1.25rem;
+  }
+}
+
+.avatar {
+  flex: 0 0 auto;
+
+  @media screen and (max-width: 570px) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+.name {
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.email {
+  margin-left: auto;
+  color: var(--text-grey);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @media screen and (max-width: 570px) {
+    margin-left: 0;
+  }
+}

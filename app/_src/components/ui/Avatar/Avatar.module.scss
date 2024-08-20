@@ -1,0 +1,23 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--stroke);
+  border-radius: 50%;
+  background-color: var(--body);
+  font-size: 1.125rem;
+  width: 3.125rem;
+  height: 3.125rem;
+
+  &_big {
+    width: 6.25rem;
+    height: 6.25rem;
+    font-size: 2.25rem;
+  }
+}
+
+.image {
+  display: inline-block;
+  border: 1px solid var(--stroke);
+  border-radius: 50%;
+}

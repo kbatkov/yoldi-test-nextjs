@@ -1,0 +1,7 @@
+.layout {
+  padding: 3.125rem 0 7.6875rem 0;
+
+  @media screen and (max-width: 570px) {
+    padding: 8.125rem 0 7.6875rem 0;
+  }
+}

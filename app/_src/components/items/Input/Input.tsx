@@ -14,18 +14,32 @@ interface IInput {
   children?: React.ReactNode;
   error?: string | null;
   className?: string;
+  component?: string;
 }
 
-export const Input: React.FC<IInput> = ({ type, name, placeholder, children, error, className = "" }) => {
+export const Input: React.FC<IInput> = ({
+  type,
+  name,
+  placeholder,
+  children,
+  error,
+  className = "",
+  component = "input",
+}) => {
   const [isFocuses, setIsFocused] = useState<boolean>(false);
   const [inputType, setInputType] = useState<string>(type);
 
   return (
-    <div className={`${s.input} ${className} ${isFocuses ? s.input_focused : ""}`}>
+    <div
+      className={`${s.input} ${className} ${isFocuses ? s.input_focused : ""} ${component == "textarea" ? s.input_textarea : ""} ${type == "slug" ? s.input_slug : ""}`}
+    >
+      {type == "slug" && <div className={s.slug}>example.com/</div>}
       {children}
       <Field
+        component={component}
         name={name}
-        type={inputType}
+        type={inputType == "slug" ? "text" : inputType}
+        rows={5}
         placeholder={placeholder}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

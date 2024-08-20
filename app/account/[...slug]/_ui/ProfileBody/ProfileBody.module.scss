@@ -1,0 +1,34 @@
+.avatar {
+  margin-bottom: 2.1875rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.875rem;
+
+  @media screen and (max-width: 570px) {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 10px;
+  }
+}
+
+.email {
+  color: var(--text-grey);
+  width: 100%;
+}
+
+.btn {
+  margin-left: auto;
+
+  @media screen and (max-width: 570px) {
+    order: 1;
+    margin-left: 0;
+  }
+}
+
+.content {
+  margin-bottom: 3.75rem;
+}

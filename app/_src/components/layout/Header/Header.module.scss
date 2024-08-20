@@ -2,8 +2,16 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 0.90625rem 1.84375rem 0.90625rem 1.25rem;
+  padding: 0 1.84375rem 0 1.25rem;
   border-bottom: 1px solid var(--stroke);
+  border-top: 1px solid var(--stroke);
+  min-height: 5rem;
+
+  @media screen and (max-width: 570px) {
+    position: fixed;
+    width: 100%;
+    background: var(--bg);
+  }
 }
 
 .logo {
@@ -13,17 +21,7 @@
 .text {
   max-width: 14.375rem;
 
-  @media screen and (max-width: 530px) {
+  @media screen and (max-width: 570px) {
     display: none;
   }
-}
-
-.btn {
-  padding-left: 2.0625rem !important;
-  padding-right: 2.0625rem !important;
-  margin-left: auto;
-}
-
-.name {
-  margin-left: auto;
 }

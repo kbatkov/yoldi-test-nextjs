@@ -5,7 +5,9 @@ import s from "./RegisterSection.module.scss";
 export const RegisterSection: React.FC = () => {
   return (
     <section className={s.section}>
-      <RegisterForm />
+      <div className={`container ${s.container}`}>
+        <RegisterForm />
+      </div>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 export const routes = {
+  home: { path: "/", protected: false },
   login: { path: "/login", protected: false },
   account: { path: "/account", protected: true },
-  home: { path: "/", protected: false },
+  list: { path: "/list", protected: true },
 };

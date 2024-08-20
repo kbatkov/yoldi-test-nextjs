@@ -12,5 +12,5 @@ export async function logout() {
 
 export async function login(userId: string) {
   await createSession(userId);
-  redirect(routes.account.path);
+  redirect(routes.list.path);
 }

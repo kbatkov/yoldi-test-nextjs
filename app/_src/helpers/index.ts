@@ -5,5 +5,6 @@ export const isPublicRoute = (pathname: string) => {
 };
 
 export const isProtectedRoute = (pathname: string) => {
-  return Object.values(routes).some((route) => route.path === pathname && route.protected);
+  const [, firstSegment] = pathname.split("/");
+  return Object.values(routes).some((route) => route.path === `/${firstSegment}` && route.protected);
 };

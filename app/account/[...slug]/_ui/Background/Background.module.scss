@@ -1,0 +1,11 @@
+.background {
+  width: 100%;
+  height: 12.5rem;
+  min-height: 12.5rem;
+  background-color: var(--body);
+  object-fit: cover;
+
+  @media screen and (max-width: 570px) {
+    margin-top: 80px;
+  }
+}

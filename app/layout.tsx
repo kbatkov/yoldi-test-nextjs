@@ -3,9 +3,11 @@ import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { Footer, Header } from "@/_src/components/layout";
+import { Footer, Header, ModalLayout } from "@/_src/components/layout";
+import { ModalProvider } from "@/_src/providers/modal-context";
 
 import "react-toastify/dist/ReactToastify.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import "@/_src/styles/globals.scss";
 
 const inter = Inter({
@@ -24,16 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body className={inter.className}>
-        <ProgressBarProvider>
-          <ProgressBar className="progressBar" />
-          <ToastContainer position="bottom-right" />
-          <Header />
-          {children}
-          <Footer />
-        </ProgressBarProvider>
-      </body>
-    </html>
+    <ModalProvider>
+      <html lang="ru">
+        <body className={inter.className}>
+          <ProgressBarProvider>
+            <ProgressBar className="progressBar" />
+            <ToastContainer position="bottom-right" />
+            <Header />
+            {children}
+            <Footer />
+            <ModalLayout />
+          </ProgressBarProvider>
+        </body>
+      </html>
+    </ModalProvider>
   );
 }

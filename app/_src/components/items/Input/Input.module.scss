@@ -6,6 +6,21 @@
   border: 1px solid var(--stroke-grey);
   border-radius: var(--border-radius);
   padding: 0.75rem 1.281875rem 0.75rem 1.243125rem;
+  height: 3.125rem;
+  
+  &_textarea {
+    height: auto;
+
+    @media screen and (max-width: 570px) {
+      textarea {
+        height: 260px;
+      }
+    }
+  }
+
+  &_slug {
+    padding-left: 166px;
+  }
 
   svg {
     flex: none;
@@ -34,4 +49,17 @@
       fill: #000;
     }
   }
+}
+
+.slug {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-grey);
+  background: var(--body);
+  padding: 0.75rem 1.25rem;
+  border-right: 1px solid var(--stroke-grey);
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  height: 100%;
 }
