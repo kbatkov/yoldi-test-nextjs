@@ -36,8 +36,8 @@ export const ModalLayout = () => {
   }, [onKeyDown]);
 
   useEffect(() => {
-    document.addEventListener("click", onClickOutside);
-    return () => document.removeEventListener("click", onClickOutside);
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
   }, [onClickOutside]);
 
   return (
