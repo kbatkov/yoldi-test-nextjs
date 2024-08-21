@@ -15,7 +15,7 @@ export const baseFetcher = async (url: string) => {
     },
     next: {
       revalidate: 60,
-      tags: ["data"],
+      tags: [url],
     },
   });
 
@@ -48,7 +48,7 @@ export const basePatchFetcher = async ({ url, args }: { url: string; args: EditP
       throw new Error(message);
     }
 
-    revalidateTag("data");
+    revalidateTag(url);
 
     return response.json();
   } catch (error) {
