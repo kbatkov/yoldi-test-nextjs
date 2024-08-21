@@ -1,6 +1,8 @@
 "use client";
 
+import { startTransition, useEffect } from "react";
 import { Form, Formik } from "formik";
+import { useProgress } from "kbatkov-react-transition-progress";
 import * as Yup from "yup";
 
 import { EmailIcon, LockIcon } from "@/_src/components/icons";
@@ -16,7 +18,14 @@ const validationSchema = Yup.object().shape({
 });
 
 export const LoginForm: React.FC = () => {
-  const [fetchLogin, { isLoading }] = useAuth({ endpoint: AuthEndpoint.login });
+  const startProgress = useProgress();
+  const [fetchLogin, { data, isLoading }] = useAuth({ endpoint: AuthEndpoint.login });
+
+  useEffect(() => {
+    if (data?.value) {
+      startTransition(async () => startProgress());
+    }
+  }, [data]);
 
   return (
     <div className={`${s.form} form  ${isLoading ? "loading" : ""}`}>

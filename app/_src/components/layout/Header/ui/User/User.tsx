@@ -1,8 +1,7 @@
 "use cleint";
 
-import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
-import { Link } from "react-transition-progress/next";
+import { Link } from "kbatkov-react-transition-progress/next";
 import { usePathname } from "next/navigation";
 
 import { Button } from "@/_src/components/items";

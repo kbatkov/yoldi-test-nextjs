@@ -21,7 +21,7 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
 
   // If the user is trying to access a public route and is logged in, redirect them to the list page.
   // We don't want to redirect them to the list page if they are already on it.
-  if (isPublicRoute(pathname) && session?.userId && !nextUrl.pathname.startsWith(routes.account.path)) {
+  if (isPublicRoute(pathname) && session?.userId && !nextUrl.pathname.startsWith(routes.list.path)) {
     return NextResponse.redirect(new URL(routes.list.path, nextUrl));
   }
 

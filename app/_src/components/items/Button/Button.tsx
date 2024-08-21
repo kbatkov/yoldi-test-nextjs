@@ -1,4 +1,4 @@
-import { Link } from "react-transition-progress/next";
+import { Link } from "kbatkov-react-transition-progress/next";
 
 import s from "./Button.module.scss";
 

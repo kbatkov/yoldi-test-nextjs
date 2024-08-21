@@ -1,5 +1,6 @@
 "use client";
-import { Link } from "react-transition-progress/next";
+
+import { Link } from "kbatkov-react-transition-progress/next";
 import { usePathname } from "next/navigation";
 
 import { routes } from "@/_src/constants";

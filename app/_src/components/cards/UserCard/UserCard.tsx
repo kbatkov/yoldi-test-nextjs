@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "kbatkov-react-transition-progress/next";
 
 import { Avatar } from "@/_src/components/ui";
 import { routes } from "@/_src/constants";

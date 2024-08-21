@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
+import { ProgressBar, ProgressBarProvider } from "kbatkov-react-transition-progress";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "react-transition-progress/next";
+import { Link } from "kbatkov-react-transition-progress/next";
 import Image from "next/image";
 
 import { routes } from "@/_src/constants";

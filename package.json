@@ -12,12 +12,12 @@
     "formik": "^2.4.6",
     "framer-motion": "^11.3.28",
     "jose": "^5.7.0",
+    "kbatkov-react-transition-progress": "^0.0.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-loading-skeleton": "^3.4.0",
     "react-toastify": "^10.0.5",
-    "react-transition-progress": "^0.0.4",
     "sass": "^1.77.8",
     "swr": "^2.2.5",
     "yup": "^1.4.0"
