@@ -18,14 +18,14 @@ export const Footer: React.FC = () => {
     <div className={s.footer}>
       {pathname === routes.home.path ? (
         <p className={s.text}>
-          Уже есть аккаунт?
+          Уже есть аккаунт?{" "}
           <Link href={routes.login.path} className={s.link}>
             Войти
           </Link>
         </p>
       ) : (
         <p className={s.text}>
-          Еще нет аккаунта?
+          Еще нет аккаунта?{" "}
           <Link href={routes.home.path} className={s.link}>
             Зарегистрироваться
           </Link>
