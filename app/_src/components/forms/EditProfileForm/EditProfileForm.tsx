@@ -28,7 +28,7 @@ export const EditProfileForm: React.FC = () => {
   useEffect(() => {
     if (editData) {
       closeModal();
-      mutate(editData.data);
+      mutate();
       router.push(`${routes.account.path}/${editData.data?.slug}`);
     }
   }, [editData]);

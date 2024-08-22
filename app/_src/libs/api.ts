@@ -19,10 +19,6 @@ export const baseFetcher = async (url: string) => {
     },
   });
 
-  if (response.status === 401) {
-    redirect(routes.login.path);
-  }
-
   return response.json();
 };
 

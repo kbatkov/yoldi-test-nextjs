@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import useSWR, { mutate } from "swr";
+import useSWR, { mutate, useSWRConfig } from "swr";
 
 import { login } from "../actions/auth";
 import { getUserFetcher } from "../actions/fetchers";
 import { AuthEndpoint, AuthFormValues } from "../types/globals";
+
+import { useGetProfileSWR } from "./useGetProfileSWR";
 
 export const useAuth = ({
   endpoint,
@@ -21,6 +23,7 @@ export const useAuth = ({
   },
 ] => {
   const [user, setUser] = useState<AuthFormValues | null>(null);
+  const { cache } = useSWRConfig();
   const authUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/${endpoint}`;
   const shouldFetch = !!user;
   const { data: authData, error: authError } = useSWR(
@@ -30,10 +33,15 @@ export const useAuth = ({
       revalidateOnMount: false,
     },
   );
+  const { mutate: mutateProfile } = useGetProfileSWR({});
 
   useEffect(() => {
     if (authData?.value) {
-      login(authData.value).then(() => setUser(null));
+      cache.delete(`${process.env.NEXT_PUBLIC_API_URL}/profile`);
+      login(authData.value).then(() => {
+        setUser(null);
+        mutateProfile();
+      });
     } else if (authData?.message) {
       toast.error(authData.message);
       setUser(null);

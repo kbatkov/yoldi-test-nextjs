@@ -7,7 +7,7 @@ import { createSession, deleteSession } from "../libs/session";
 
 export async function logout() {
   await deleteSession();
-  permanentRedirect(routes.login.path);
+  // permanentRedirect(routes.login.path);
 }
 
 export async function login(userId: string) {

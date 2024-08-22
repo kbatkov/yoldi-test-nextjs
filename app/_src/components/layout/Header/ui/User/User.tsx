@@ -7,25 +7,22 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/_src/components/items";
 import { Avatar } from "@/_src/components/ui";
 import { routes } from "@/_src/constants";
-import { isProtectedRoute } from "@/_src/helpers";
 import { useGetProfileSWR } from "@/_src/hooks";
 
 import s from "./User.module.scss";
 
 export const User = () => {
   const pathname = usePathname();
-  const isShowLoginLink = pathname === routes.home.path;
+  const isShowLoginLink = pathname !== routes.login.path;
   const isShowRegisterLink = pathname === routes.login.path;
-  const shouldFetch = isProtectedRoute(pathname);
 
-  const { data, isLoading } = useGetProfileSWR({ shouldFetch });
+  const { data, isLoading } = useGetProfileSWR({});
 
   const { name, image, slug } = data || {};
 
-  if (!shouldFetch)
+  if (!isLoading && data?.statusCode === 401) {
     return (
       <>
-        {" "}
         {isShowLoginLink && (
           <Button href={routes.login.path} className={s.btn} style="secondary" size="small">
             Войти
@@ -38,6 +35,7 @@ export const User = () => {
         )}
       </>
     );
+  }
 
   if (!isLoading) {
     return (
