@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { routes } from "../constants/routes";
+import { nextTagsRelations, routes } from "../constants";
 import { AuthFormValues, EditProfileFormValues } from "../types/globals";
 
 import { decrypt } from "./session";
@@ -14,7 +14,6 @@ export const baseFetcher = async (url: string) => {
       "X-API-Key": "" || (token as unknown as string),
     },
     next: {
-      revalidate: 60,
       tags: [url],
     },
   });
@@ -48,7 +47,7 @@ export const basePatchFetcher = async ({ url, args }: { url: string; args: EditP
       throw new Error(message);
     }
 
-    revalidateTag(url);
+    revalidateTag(`${nextTagsRelations[url]}/${args.slug}`);
 
     return response.json();
   } catch (error) {
